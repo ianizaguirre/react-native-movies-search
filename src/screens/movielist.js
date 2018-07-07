@@ -12,8 +12,9 @@ import NowListItem from '../components/NowListItem';
 import SearchBar from '../components/SearchBar';
 
 import Services from '../services';
+import { connect } from 'react-redux';
 
-export default class MovieList extends Component {
+class MovieList extends Component {
   state = {
     upcoming: [{ id: 0, title: '' }, { id: 1, title: '' }, { id: 2, title: '' }],
     nowplaying: [{ id: 0, title: '' }, { id: 1, title: '' }, { id: 2, title: '' }]
@@ -85,3 +86,5 @@ const styles = StyleSheet.create({
     marginTop: 80
   }
 });
+
+export default connect()(MovieList);
