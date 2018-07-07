@@ -29,6 +29,6 @@ export default {
   },
 
   getSearchResult(searchParam) {
-    return this.apiCall('search', 'GET', searchParam)
+    return this.apiCall('search/movie', 'GET', `&query=${searchParam}`)
   }
 }

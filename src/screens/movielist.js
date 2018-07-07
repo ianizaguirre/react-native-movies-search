@@ -42,26 +42,32 @@ export default class MovieList extends Component {
     return (
       <ScrollView style={styles.container}>
         <SearchBar />
-        <View>
-          <Text style={styles.title}>MOVIES</Text>
-          <FlatList
-            data={this.state.upcoming}
-            extraData={this.state}
-            keyExtractor={this.keyExtractor}
-            renderItem={this.renderUpcoming}
-            horizontal
-          />
-        </View>
-        <View style={styles.listcontainer}>
-          <Text>NOW</Text>
-          <FlatList
-            data={this.state.nowplaying}
-            extraData={this.state}
-            keyExtractor={this.keyExtractor}
-            renderItem={this.renderNowPlaying}
-            horizontal
-          />
-        </View>
+        {this.state.results && search.length != 0 ? (
+          <View />
+        ) : (
+          <View>
+            <View>
+              <Text style={styles.title}>MOVIES</Text>
+              <FlatList
+                data={this.state.upcoming}
+                extraData={this.state}
+                keyExtractor={this.keyExtractor}
+                renderItem={this.renderUpcoming}
+                horizontal
+              />
+            </View>
+            <View style={styles.listcontainer}>
+              <Text>NOW</Text>
+              <FlatList
+                data={this.state.nowplaying}
+                extraData={this.state}
+                keyExtractor={this.keyExtractor}
+                renderItem={this.renderNowPlaying}
+                horizontal
+              />
+            </View>
+          </View>
+        )}
       </ScrollView>
     );
   }
